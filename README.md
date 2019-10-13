@@ -1,27 +1,40 @@
+# jlenv-each: Execute a command for each Julia version
+
 ## Installation
 
-To install rbenv-each, clone this repository into your rbenv plugins directory. (You'll need a recent version of rbenv that supports plugin bundles.)
+To install jlenv-each, clone this repository into your jlenv plugins directory.
 
-```
-git clone https://github.com/rbenv/rbenv-each.git "$(rbenv root)"/plugins/rbenv-each
+```bash
+git clone https://github.com/jlenv/jlenv-each.git "$(jlenv root)"/plugins/jlenv-each
 ```
 
 ## Usage
 
-```
-$ rbenv help each
+```bash
+jlenv help each
 ```
 
-Verbose mode will print a header for each ruby so you can distinguish
-the output.
+Verbose mode will print a header for each Julia so you can distinguish the
+output.
 
-**Note**: [Version aliases][rbenv-aliases] (versions that are just symlinks pointing to another rbenv version) are skipped when iterating through the list of rbenv versions.
+**Note**: [Version aliases](https://github.com/jlenv/jlenv-aliases)
+(versions that are just symlinks pointing to another jlenv version) are skipped
+when iterating through the list of jlenv versions.
 
 ### Examples:
 
-```
-$ rbenv each bundle install
-$ rbenv each -v rake test
+```bash
+jlenv each julia -e 'using Pkg; Pkg.status()'
+jlenv each echo $JLENV_ROOT
 ```
 
-[rbenv-aliases]: https://github.com/rbenv/rbenv-aliases
+## Version History
+
+**1.0.0** (October 13, 2019)
+
+* Initial public release for Julia.
+
+## License
+
+&copy; 2012 Sam Stephenson. Released under the MIT license. See
+`LICENSE` for details.
