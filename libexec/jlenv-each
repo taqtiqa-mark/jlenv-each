@@ -50,10 +50,10 @@ if [ -t 1 ]; then
   GRAY="\033[1;30m"
   RED="\033[0;31m"
   YELLOW="\033[0;33m"
-  NORMAL="\033[0m"
+  NORMAL='\033[0m'
 fi
 
-falied_julies=""
+falied_julies=''
 
 trap "exit 1" INT
 

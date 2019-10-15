@@ -14,6 +14,8 @@ git clone https://github.com/jlenv/jlenv-each.git "$(jlenv root)"/plugins/jlenv-
 jlenv help each
 ```
 
+[![Build Status](https://travis-ci.com/jlenv/jlenv-each.svg?branch=master)](https://travis-ci.com/jlenv/jlenv-each) [![CodeFactor](https://www.codefactor.io/repository/github/jlenv/jlenv-each/badge)](https://www.codefactor.io/repository/github/jlenv/jlenv-each)
+
 Verbose mode will print a header for each Julia so you can distinguish the
 output.
 
@@ -25,7 +27,6 @@ when iterating through the list of jlenv versions.
 
 ```bash
 jlenv each julia -e 'using Pkg; Pkg.status()'
-jlenv each echo $JLENV_ROOT
 ```
 
 ## Version History
@@ -36,5 +37,4 @@ jlenv each echo $JLENV_ROOT
 
 ## License
 
-&copy; 2012 Sam Stephenson. Released under the MIT license. See
-`LICENSE` for details.
+Released under the MIT license. See `LICENSE` for details.
