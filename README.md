@@ -1,5 +1,7 @@
 # jlenv-each: Execute a command for each Julia version
 
+[![Build Status](https://travis-ci.com/jlenv/jlenv-each.svg?branch=master)](https://travis-ci.com/jlenv/jlenv-each) [![CodeFactor](https://www.codefactor.io/repository/github/jlenv/jlenv-each/badge)](https://www.codefactor.io/repository/github/jlenv/jlenv-each)
+
 ## Installation
 
 To install jlenv-each, clone this repository into your jlenv plugins directory.
@@ -25,7 +27,6 @@ when iterating through the list of jlenv versions.
 
 ```bash
 jlenv each julia -e 'using Pkg; Pkg.status()'
-jlenv each echo $JLENV_ROOT
 ```
 
 ## Version History
@@ -36,5 +37,4 @@ jlenv each echo $JLENV_ROOT
 
 ## License
 
-&copy; 2012 Sam Stephenson. Released under the MIT license. See
-`LICENSE` for details.
+Released under the MIT license. See `LICENSE` for details.

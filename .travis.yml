@@ -1,0 +1,7 @@
+sudo: false
+language: ruby
+script:
+  # Fail if any of these files have warnings
+  - shellcheck etc/jlenv.d/exec/jlenv-each.bash
+  - shellcheck libexec/jlenv-each
+  - test/run

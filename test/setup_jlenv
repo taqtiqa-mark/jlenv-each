@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Setup the jlenv code the plugin will be tested against.
+if [ -d test/libs/jlenv ]; then
+  ( 
+    echo Updating jlenv:
+    git submodule update --recursive --remote
+  )
+else
+  git submodule add https://github.com/jlenv/jlenv.git test/libs/jlenv
+  git submodule update --init --recursive
+  git commit -m 'Add jlenv library'
+fi
