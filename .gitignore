@@ -2,3 +2,6 @@
 
 # Editor settings
 .vscode/
+
+# merge conflict artifacts
+*.orig
