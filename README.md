@@ -1,5 +1,7 @@
 # jlenv-each: Execute a command for each Julia version
 
+[![Build Status](https://travis-ci.com/jlenv/jlenv-each.svg?branch=master)](https://travis-ci.com/jlenv/jlenv-each) [![CodeFactor](https://www.codefactor.io/repository/github/jlenv/jlenv-each/badge)](https://www.codefactor.io/repository/github/jlenv/jlenv-each)
+
 ## Installation
 
 To install jlenv-each, clone this repository into your jlenv plugins directory.
@@ -13,8 +15,6 @@ git clone https://github.com/jlenv/jlenv-each.git "$(jlenv root)"/plugins/jlenv-
 ```bash
 jlenv help each
 ```
-
-[![Build Status](https://travis-ci.com/jlenv/jlenv-each.svg?branch=master)](https://travis-ci.com/jlenv/jlenv-each) [![CodeFactor](https://www.codefactor.io/repository/github/jlenv/jlenv-each/badge)](https://www.codefactor.io/repository/github/jlenv/jlenv-each)
 
 Verbose mode will print a header for each Julia so you can distinguish the
 output.
