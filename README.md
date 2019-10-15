@@ -30,6 +30,7 @@ when iterating through the list of jlenv versions.
 
 ```bash
 jlenv each julia -e 'using Pkg; Pkg.status()'
+jlenv each echo $JLENV_ROOT
 ```
 
 ## Version History
@@ -40,8 +41,5 @@ jlenv each julia -e 'using Pkg; Pkg.status()'
 
 ## License
 
-Released under the MIT license. See `LICENSE` for details.
-
-## Contributors
-
-This project follows the all-contributors specification. Contributions of any kind are welcome!
+&copy; 2012 Sam Stephenson. Released under the MIT license. See
+`LICENSE` for details.
