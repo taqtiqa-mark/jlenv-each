@@ -1,11 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ -d test/libs/bats ]; then
   ( 
-    echo "Updating bats:"
-    git submodule update --recursive --remote
+    echo "Update bats-core, support, assert, file and mock submodules."
+    # Initialize all the submoudules as listed in .gitmodules and force pull all of them.
+    git config -f .gitmodules --list | 
+      awk -F= '$1 ~ /.path$/ {print $2}' | 
+        xargs rm -rf
+    # Repopulate the test/libs directories
+    git submodule update
     cd test/libs/bats
-    ./install.sh ./
+      ./install.sh
   )
 else
   git submodule add https://github.com/bats-core/bats-core.git test/libs/bats
@@ -15,5 +20,5 @@ else
   git submodule update --init --recursive
   git commit -m 'Add bats-support library'
   cd test/libs/bats
-  ./install.sh ./
+    ./install.sh
 fi
