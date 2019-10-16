@@ -9,9 +9,7 @@ if [ -d test/libs ]; then
       awk -F= '$1 ~ /.path$/ {print $2}' | 
         xargs rm -rf
 
-    git submodule update
+    git submodule update --recursive --force
     
-    cd test/libs/bats
-      ./install.sh
   )
 fi
