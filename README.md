@@ -26,7 +26,7 @@ output.
 (versions that are just symlinks pointing to another jlenv version) are skipped
 when iterating through the list of jlenv versions.
 
-### Examples:
+### Examples
 
 ```bash
 jlenv each julia -e 'using Pkg; Pkg.status()'
@@ -35,9 +35,8 @@ jlenv each echo $JLENV_ROOT
 
 ## Version History
 
-**1.0.0** (October 13, 2019)
-
-* Initial public release for Julia.
+- 1.0.0
+  - Initial public release for Julia.
 
 ## License
 
