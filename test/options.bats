@@ -22,23 +22,23 @@ load test_helper
 # However, if the JLENV is set correctly then the correct Julia should be 
 # invoked when the `julia` command is used.  
 # That is `julia` will call the shim and so set the correct version. 
-@test "jlenv-each loops over installed Julias" {
+@test "jlenv-each --verbose displays installed Julias looped over" {
   create_versions v1.0.5 v1.0.5-rc99 v1.0.5-rc100 v1.0.5-rc371  
 
   run jlenv-each --verbose echo true
   assert_success
-  assert_output <<'VRBS_MSG'
-  ===[v1.0.5]=============================================================
-  /home/hedge/src/jlenv-each/test/../libexec/jlenv-each: line 96: JLENV_VERSION=v1.0.5: command not found
+  assert_output --stdin <<'VRBS_MSG'
+===[v1.0.5]=============================================================
+true
 
-  ===[v1.0.5-rc100]=======================================================
-  /home/hedge/src/jlenv-each/test/../libexec/jlenv-each: line 96: JLENV_VERSION=v1.0.5-rc100: command not found
+===[v1.0.5-rc100]=======================================================
+true
 
-  ===[v1.0.5-rc371]=======================================================
-  /home/hedge/src/jlenv-each/test/../libexec/jlenv-each: line 96: JLENV_VERSION=v1.0.5-rc371: command not found
+===[v1.0.5-rc371]=======================================================
+true
 
-  ===[v1.0.5-rc99]========================================================
-  /home/hedge/src/jlenv-each/test/../libexec/jlenv-each: line 96: JLENV_VERSION=v1.0.5-rc99: command not found
+===[v1.0.5-rc99]========================================================
+true
 VRBS_MSG
 }
 
@@ -47,7 +47,7 @@ VRBS_MSG
 # @test "jlenv-each --noop" {
 #   run jlenv-each --noop echo true
 #   assert_success
-#   assert_output <<'STD_MSG'
+#   assert_output --stdin <<'STD_MSG'
 
 #   origin     https://github.com/jlenv/jlenv.git (fetch)
 #   origin     https://github.com/jlenv/jlenv.git (push)
@@ -61,7 +61,7 @@ VRBS_MSG
 # @test "jlenv-each --quiet --noop should disregard the quiet switch" {
 #   run jlenv-each --quiet --noop echo true
 #   assert_success
-#   assert_output <<'STD_MSG'
+#   assert_output --stdin <<'STD_MSG'
 
 #   origin     https://github.com/jlenv/jlenv.git (fetch)
 #   origin     https://github.com/jlenv/jlenv.git (push)

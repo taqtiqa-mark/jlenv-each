@@ -33,7 +33,7 @@ if [ "${JLENV_ROOT:=/}" != "${JLENV_TEST_DIR}/root" ]; then
   pushd ${BATS_TEST_DIRNAME}/libs/bats
     ./install.sh ${BATS_TEST_DIRNAME}/libexec
   popd
-  
+
   PATH=/usr/bin:/bin:/usr/sbin:/sbin
   PATH="${JLENV_TEST_DIR}/bin:$PATH"
   PATH="${BATS_TEST_DIRNAME}/libexec:$PATH"
@@ -96,7 +96,7 @@ create_versions() {
 #endif
 EOF
     ln -nfs /bin/echo "$d/bin/julia"
-    echo "Created version: $d"
+    echo "Created fake Julia version: $d"
   done
 }
 
