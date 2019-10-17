@@ -30,8 +30,8 @@ if [ "${JLENV_ROOT:=/}" != "${JLENV_TEST_DIR}/root" ]; then
 
   # Install bats to the test location.  This is next added to path.
   # These files are in .gitignore
-  pushd ${BATS_TEST_DIRNAME}/libs/bats
-    ./install.sh ${BATS_TEST_DIRNAME}/libexec
+  pushd "${BATS_TEST_DIRNAME}/libs/bats"
+    ./install.sh "${BATS_TEST_DIRNAME}/libexec"
   popd
 
   PATH=/usr/bin:/bin:/usr/sbin:/sbin
