@@ -41,5 +41,4 @@ jlenv each echo $JLENV_ROOT
 
 ## License
 
-&copy; 2012 Sam Stephenson. Released under the MIT license. See
-`LICENSE` for details.
+Released under the MIT license. See `LICENSE` for details.
