@@ -24,10 +24,10 @@ HLP_MSG
   run jlenv-each echo true
   assert_success
   assert_output --stdin <<'STD_MSG'
-true
-true
-true
-true
+ |  true
+ |  true
+ |  true
+ |  true
 STD_MSG
 
 }

@@ -117,11 +117,11 @@ for julia in $(jlenv versions --bare --skip-aliases); do
     JLENV_VERSION="$julia" echo "$@" | indent_output
     if [ $? -ne 0 ]  ; then
       failed_julias="$failed_julias $julia"
-      echo "$failed_julias" | indent_output
+      echo "$failed_julias" 2>&1 >/dev/null | indent_output
     fi
   elif [ "$quiet" = "true" ]; then
     # mute stdout and stderr
-    JLENV_VERSION="$julia" command "$@" >/dev/null
+    JLENV_VERSION="$julia" command "$@" 2>&1 >/dev/null
     if [ $? -ne 0 ]  ; then
       failed_julias="$failed_julias $julia"
     fi
@@ -134,10 +134,10 @@ for julia in $(jlenv versions --bare --skip-aliases); do
     fi
   else
     # mute stdout, indent stderr
-    JLENV_VERSION="$julia" command "$@" 2>&1 >/dev/null | indent_output
+    JLENV_VERSION="$julia" command "$@" | indent_output
     if [ $? -ne 0 ]  ; then
       failed_julias="$failed_julias $julia" 
-      echo "$failed_julias $julia" 2>&1 >/dev/null | indent_output
+      echo "$failed_julias $julia" | indent_output
     fi
   fi
 
