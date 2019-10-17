@@ -82,11 +82,18 @@ YELLOW=""
 NORMAL=""
 
 if [ -t 1 ]; then
-  GRAY="\033[1;30m"
+  GREEN="\033[1;30m"
   RED="\033[0;31m"
   YELLOW="\033[0;33m"
   NORMAL='\033[0m'
 fi
+
+# Helper functions.
+indent_output() {
+  while read -r data; do
+    printf " ${GREEN}|${NORMAL}  %s\n" "$data"
+  done
+}
 
 failed_julias=''
 
@@ -107,16 +114,31 @@ for julia in $(jlenv versions --bare --skip-aliases); do
 
   if [ "$noop" = "true" ]; then
     # print would-be command
-    JLENV_VERSION="$julia" echo "$@" || failed_julias="$failed_julias $julia" | indent_output
+    JLENV_VERSION="$julia" echo "$@" | indent_output
+    if [ $? -ne 0 ]  ; then
+      failed_julias="$failed_julias $julia"
+      echo "$failed_julias" | indent_output
+    fi
   elif [ "$quiet" = "true" ]; then
     # mute stdout and stderr
-    JLENV_VERSION="$julia" command "$@" || failed_julias="$failed_julias $julia" &>/dev/null
+    JLENV_VERSION="$julia" command "$@" >/dev/null
+    if [ $? -ne 0 ]  ; then
+      failed_julias="$failed_julias $julia"
+    fi
   elif [ "$verbose" = "true" ]; then
     # indent stdout and stderr
-    JLENV_VERSION="$julia" command "$@" || failed_julias="$failed_julias $julia" 2>&1 | indent_output
+    JLENV_VERSION="$julia" command "$@" 2>&1 | indent_output
+    if [ $? -ne 0 ]  ; then
+      failed_julias="$failed_julias $julia"
+      echo "$failed_julias $julia" 2>&1 | indent_output
+    fi
   else
     # mute stdout, indent stderr
-    JLENV_VERSION="$julia" command "$@" || failed_julias="$failed_julias $julia" 2>&1 >/dev/null | indent_output
+    JLENV_VERSION="$julia" command "$@" 2>&1 >/dev/null | indent_output
+    if [ $? -ne 0 ]  ; then
+      failed_julias="$failed_julias $julia" 
+      echo "$failed_julias $julia" 2>&1 >/dev/null | indent_output
+    fi
   fi
 
   [ "$verbose" = "true" ] && echo
