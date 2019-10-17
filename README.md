@@ -36,7 +36,7 @@ jlenv each echo $JLENV_ROOT
 ## Version History
 
 * 1.0.0:
-  + Initial public release for Julia.
+  * Initial public release for Julia.
 
 ## License
 
